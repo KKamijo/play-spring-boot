@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_temp :: header">
+</head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+       <h1>ユーザー参照</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form role="form" action="/user/update" th:action="@{/user/update}" th:object="${user}" method="post">
+            <!-- text -->
+            <div class="form-group">
+              <label class="control-label" for="inputText"><abbr title="required">*</abbr> Id</label>
+              <input type="text" class="form-control" id="inputText" name="id" th:field="*{id}" readonly="readonly" />
+              <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="help-block">error!</span>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="inputText"><abbr title="required">*</abbr> Name</label>
+              <input type="text" class="form-control" id="inputText" name="name" th:field="*{name}" readonly="readonly" />
+              <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="help-block">error!</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
