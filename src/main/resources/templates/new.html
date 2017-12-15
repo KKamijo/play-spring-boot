@@ -16,23 +16,23 @@
           <form role="form" action="/user/create" th:action="@{/user/create}" th:object="${user}" method="post">
             <!-- text -->
             <div class="form-group">
-              <label class="control-label" for="inputText"><abbr title="required">*</abbr> Id</label>
-              <input type="text" class="form-control" id="inputText" name="id" th:field="*{id}" maxlength="10" />
+              <label class="control-label" for="id"><abbr title="required">*</abbr> Id</label>
+              <input type="text" class="form-control" id="id" name="id" th:field="*{id}" maxlength="10" />
               <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="help-block">error!</span>
             </div>
             <div class="form-group">
-              <label class="control-label" for="inputText"><abbr title="required">*</abbr> Name</label>
-              <input type="text" class="form-control" id="inputText" name="name" th:field="*{name}" maxlength="25" />
+              <label class="control-label" for="name"><abbr title="required">*</abbr> Name</label>
+              <input type="text" class="form-control" id="name" name="name" th:field="*{name}" maxlength="25" />
               <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="help-block">error!</span>
             </div>
             <div class="form-group">
-              <label class="control-label" for="inputText"><abbr title="required">*</abbr> Password</label>
-              <input type="password" class="form-control" id="inputText" name="password" th:field="*{password}" maxlength="25" />
+              <label class="control-label" for="password"><abbr title="required">*</abbr> Password</label>
+              <input type="password" class="form-control" id="password" name="password" th:field="*{password}" maxlength="8" />
               <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="help-block">error!</span>
             </div>
             <div class="form-group">
-              <label class="control-label" for="inputText"><abbr title="required">*</abbr> Confirm Password</label>
-              <input type="password" class="form-control" id="inputText" name="confirmPassword" th:field="*{confirmPassword}" maxlength="25" />
+              <label class="control-label" for="confirmPassword"><abbr title="required">*</abbr> Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}" maxlength="8" />
               <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="help-block">error!</span>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>

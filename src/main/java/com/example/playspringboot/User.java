@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.Errors;
 
 import lombok.Data;
 
@@ -18,6 +19,9 @@ import lombok.Data;
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -1L;
+
+	@Transient
+	private UserValidator userValidator = new UserValidator();
 
 	@Id
 	@Column(nullable = false, unique = true, updatable = false)
@@ -61,8 +65,7 @@ public class User implements Serializable {
 		return this.password.equals(this.confirmPassword);
 	}
 
-	public boolean isValidPassword() {
-		//TODO check password size
-		return true;
+	public void customValidation(Errors result) {
+		userValidator.validate(this, result);
 	}
 }

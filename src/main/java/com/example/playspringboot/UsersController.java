@@ -57,17 +57,10 @@ public class UsersController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	ModelAndView create(@Valid User user, BindingResult bindingResult, ModelAndView mav) throws NoSuchAlgorithmException {
-		// exclude password error
+		// Do Custom Validation
+		user.customValidation(bindingResult);
+		
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors().toString());
-			mav.setViewName("new");
-			mav.addObject("validationError", "不正な値が入力されました。");
-			mav.addObject("user", user);
-			return mav;
-		}
-		// include pasword error
-		if (!user.isValidPassword()) {
-			//TODO set passwrod error message
 			System.out.println(bindingResult.getAllErrors().toString());
 			mav.setViewName("new");
 			mav.addObject("validationError", "不正な値が入力されました。");
